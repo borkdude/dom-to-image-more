@@ -729,8 +729,9 @@
 
             function getCssRules(styleSheets) {
                 var cssRules = [];
-                styleSheets.forEach(function(sheet) {
-                    if (sheet.hasOwnProperty("cssRules")) {
+              styleSheets.forEach(function(sheet) {
+                // workaround for: https://github.com/1904labs/dom-to-image-more/issues/21
+                  if (true) { // sheet.hasOwnProperty("cssRules")) {
                         try {
                             util.asArray(sheet.cssRules || []).forEach(cssRules.push.bind(cssRules));
                         } catch (e) {
